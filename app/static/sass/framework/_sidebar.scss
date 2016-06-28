@@ -1,0 +1,45 @@
+.sidebar-block,
+.sidebar-ad-block {		
+	padding: $padding-section;
+}
+.sidebar-block {
+	border-top: 1px solid $color-border;
+	margin-bottom: $sidebar-spacing;
+	&:first-child {
+		border-top: none;
+	}
+}
+.sidebar-list {
+	margin: 0;
+	padding: 0;
+}
+.sidebar-item {
+	list-style-type: none;
+	margin-bottom: $sidebar-spacing;
+}
+.sidebar-sub-item {
+	display: block;	
+}
+.sidebar-content-heading {	
+	display: block;
+	font-weight: bold;
+}
+.sidebar-block-heading {
+	@include heading('secondary', $padding: 0 0 $header-spacing 0);	    
+}
+.sidebar-link {
+	@include default-link-styles('light'); 
+	@include hyphenate;
+}
+@include media($mq-small) {
+	.sidebar-block,
+	.sidebar-ad-block {	
+		background: $color-background-grey; 
+		padding: $sidebar-spacing;
+	}
+
+	.sidebar-block {
+		border: none;
+		border-left: 5px solid $color-primary-green;
+	}
+}

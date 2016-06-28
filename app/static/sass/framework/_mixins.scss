@@ -1,0 +1,235 @@
+﻿//The font-size mixin spits out both the pixel value and rem value based on the number passed to the mixin. 
+//for example, h1{@include font-size(3.6);} will produce font-size:36px; and font-size:3.6rem;. 
+//Older browsers that don't support REM will default to the pixel value
+
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 16) + px;
+  font-size: $sizeValue + rem;
+}
+
+// Reusable list of html headings
+$headings-list: h1,h2,h3,h4,h5,h6;
+
+//New Web Fonts for Redesign
+
+@mixin font-gotham-book {
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    .fonts-loaded & {
+        font-family: 'Gotham A', 'Gotham B', Arial, sans-serif;        
+    }
+}
+
+@mixin font-gotham-medium {
+    font-family: Arial, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    .fonts-loaded & {
+        font-family: 'Gotham A', 'Gotham B', Arial, sans-serif;        
+    }
+}
+
+@mixin font-whitney-medium {
+    font-family:  Arial, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    .fonts-loaded & {
+        font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-serif;        
+    }
+}
+
+@mixin font-whitney-bold {
+    font-family: 'Whitney SSm A', 'Whitney SSm B';
+    font-weight: 700;
+    font-style: normal;
+    .fonts-loaded & {
+        font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-serif;        
+    }
+}
+
+@mixin heading($type: '', $color: $color-text-dark, $padding: $space-default 0, $display: block) {    
+  @include font-whitney-medium;
+  color: $color;
+  display: $display;
+  margin: 0;
+  padding: $padding;
+
+  @if $type == 'primary' {
+    @include font-size($fontSize-heading--primary);        
+  } @else if $type == 'secondary' {
+    @include font-size( $fontSize-heading--secondary);
+  } @else if $type == 'tertiary' {
+    @include font-size($fontSize-heading--tertiary);        
+  } @else if $type == 'quaternary' {
+    @include font-size($fontSize-heading--quaternary);        
+  } @else {
+    @include font-size($fontSize-heading--primary);
+  }
+}
+
+//Heading and Sub-headings for Redesign
+@mixin section-heading($display: block, $padding: 50px 0, $color: $color-text-dark, $font-size: $fontSize-heading--primary){
+    display: $display;
+    @include font-whitney-medium;
+    @include font-size($font-size);
+    color: $color;
+    margin: 0;
+    padding: $padding;
+}
+
+@mixin link-colors($link-color, $link-hover-color, $hover-state: 'true') {
+  color: #{$link-color};
+  @if $hover-state == 'true' {
+    &:hover,
+    &:focus {
+      color: #{$link-hover-color};
+    }
+  }
+}
+
+@mixin button-ghost ($btn-color: '#FFF', $size: 'default') {
+    background-color: transparent;
+    border: if($size == 'small', 1px, 2px) solid $btn-color;
+    border-radius: if($size == 'small', 2px, 5px);
+    color: $btn-color;
+    padding: if($size == 'small', 10px 20px, 3px 10px);    
+    text-decoration: none;
+}
+
+@mixin default-link-styles($background-lightness: 'light', $hover-state: 'true') {  
+  @include link-colors(if($background-lightness == 'light', $color-nav-link, $color-text-darkbg), $color-nav-link, $hover-state);
+  opacity: 1;
+  text-decoration: none;
+
+  @if $hover-state == 'true' {
+    &:hover,
+    &:focus {  
+      text-decoration: underline;
+    }
+  }
+}
+
+@mixin max-width-aligned {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0  $padding-section; 
+}
+
+@mixin hidden-text {
+  // Accessible approach to hiding text
+  height: 1px;   
+  left: -10000px; 
+  overflow: hidden;
+  position:absolute; 
+  transition: top 1s ease-out, background 1s linear;  
+  top: auto; 
+  width: 1px; 
+}
+
+@mixin dropdown-menu ($background-color: $color-black, $link-color: $color-white, $link-hover: $color-nav-link, $right: 80px) {
+  background: $background-color;
+  display: none;
+  position: absolute;
+  padding: 30px;
+  
+  &.is-active{
+    display: block;
+  }
+
+  &:before { //the arrow icon      
+    border: 10px solid transparent;
+    border-bottom: 10px solid $color-black;
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: $right;
+  }
+
+  & li {
+    @include font-whitney-medium;
+    list-style: none;
+    padding: 5px 0px;   
+    text-align: left; 
+
+    & a {
+      color: $link-color;      
+      text-decoration: none;
+
+      &:hover{
+        color: $link-hover;
+      }
+    }
+  }
+}
+
+@mixin expander ($background: $color-black, $background-icon-color: darken( $background, 5% ), $text-color: $color-white, $padding-value: 40px) {
+    background: $background;
+
+  .expander-heading-wrap {
+    @include max-width-aligned;
+    cursor: pointer;
+
+    &.expanded {
+      .expander-icon:before {
+        content: '-';
+      }
+    }
+  }
+  .expander-heading {
+    @include section-heading($display: inline-block, $padding: 30px 0, $color: $text-color);
+    width: 80%;
+  }
+  .expander-content-wrap {
+    background: darken( $background, 5% );
+    max-height: 0;
+    overflow: hidden;    
+
+    &.is-active{
+        max-height: 2000px;
+    }
+  }
+  .expander-content {
+    @include clearfix;
+    @include max-width-aligned;     
+    padding: 0 $padding-section $content-spacing $padding-section;
+  }
+
+  .expander-toggle-link {
+    background: $background-icon-color;    
+    border-radius: 100%;
+    color: $text-color;
+    display: inline-block;
+    font-size: 40px;
+    float: right;
+    height: 50px; 
+    line-height: 50px;
+    margin-top: 20px; 
+    position: relative;
+    padding-left: 5px; 
+    text-decoration: none;   
+    width: 50px;
+  }
+
+  .expander-icon:before {
+      content: '+';
+      text-rendering: optimizeSpeed;
+  }
+}
+
+@mixin hide-scrollbars {
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin hyphenate {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}

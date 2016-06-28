@@ -1,0 +1,115 @@
+﻿/* styles for validation helpers */
+.field-validation-error {
+	@include font-gotham-book;
+	color: #e80c4d;
+	font-weight: bold;    
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.field-validation-valid {
+	display: none;
+}
+
+input.input-validation-error {
+	border: 1px solid #e80c4d;
+}
+
+input[type="checkbox"].input-validation-error {
+	border: 0 none;
+}
+
+.validation-summary-errors {
+	color: #e80c4d;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+.validation-summary-valid {
+	display: none;
+}
+
+
+/* Error Messages
+----------------------------------------------------------*/
+
+.field-validation-error{
+	color: $color-text-error;
+	clear:both;
+}
+
+.field-validation-valid{
+	display: none;
+}
+
+.input-validation-error,
+input.field-validation-error {
+	color: $color-text-dark;
+	border: 1px solid $color-text-error !important;
+	background-color: #FFFAF2;
+}
+
+input.input-validation-error:focus,
+input.field-validation-error:focus {
+	box-shadow: inset 0 0 0 1px $color-text-error;
+	background-color: #FFFAF2;
+}
+
+.validation-summary-errors {
+	font-weight: bold;
+	color: $color-text-error;
+}
+
+.validation-summary-errors ul{
+	font-weight: bold;
+	color: $color-text-error;
+	margin:0;
+	padding:0;
+}
+
+.validation-summary-errors li{
+	font-weight: bold;
+	color: $color-text-error;
+	list-style:none;
+	border: 1px solid;
+	padding: 10px;
+}
+
+.validation-summary-valid {
+	display: none;
+}
+
+.validation-error-icon{
+	padding:5px 10px 5px 27px;
+	background: url(/assets/images/icons/exclaimation/exclaimation_red16_over.png) no-repeat scroll 5px center #FFFFFF; 
+	display: block;
+	border:1px solid $color-text-error;
+	}
+
+.browser-validation{
+	border: 1px solid $color-text-error;
+	margin-top: 20px;
+	padding: 20px 10px 20px 55px;
+	background: url(/assets/images/icons/exclaimation/exclaimation_red32_over.png) no-repeat 10px #FFFAF2;
+}
+
+/* Dark background validation scheme
+----------------------------------------------------------*/
+.form-label--darkbg {
+	.field-validation-error {
+		background: $color-white;
+		border-radius: 0 0 4px 4px;
+		border: 1px solid $color-text-error;
+		border-top: none;
+		color: $color-text-error;
+		display: block;
+		padding: 5px;
+
+		&.form-text-input--dark {
+			border-radius: 4px 4px 0 0;
+			border-bottom: none;
+			margin-bottom: 0;
+		}
+		
+	}
+}

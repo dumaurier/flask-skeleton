@@ -1,0 +1,25 @@
+{
+  "name": "sandbox",
+  "version": "1.0.0",
+  "description": "Gulp file for Flask Sandbox",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-bundle-file": "^0.3.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^1.12.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-rev": "^6.0.1",
+    "gulp-sass": "^2.1.0",
+    "gulp-uglify": "^1.4.2",
+    "run-sequence": "^1.1.4"
+  },
+  "devDependencies": {
+    "gulp-rev": "^6.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Workopolis",
+  "license": "ISC"
+}

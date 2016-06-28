@@ -1,0 +1,47 @@
+//New base button for redesign
+.btn{
+    color: $color-white;
+    display: inline-block;
+    background: $color-primary-green;
+    border-radius: 3px;
+    border: none;
+    letter-spacing: 1px;
+    padding: 15px 20px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    text-decoration: none;
+    @include font-size(1);  
+    font-family: Sans-serif;
+
+    &.btn-block{
+        width: 100%; 
+    }
+
+    &.btn--small{
+        @include font-size(0.825);
+        padding: 5px 10px;
+    }
+
+    &.btn--ghost{
+        background: transparent;
+        color: #fff;
+        border: 2px solid #fff;
+    }
+
+    &.btn--disabled{
+        background: $color-disabled;
+        cursor: default;
+    }
+}
+
+.btn-ghost {
+    @include button-ghost($color-white);
+}
+
+.btn-ghost--small {
+    @include button-ghost($color-white, 'small');
+}
+
+.btn-ghost--dark {
+    @include button-ghost($color-text-dark, 'small');
+}

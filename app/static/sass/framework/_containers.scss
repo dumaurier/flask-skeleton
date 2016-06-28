@@ -1,0 +1,15 @@
+//Full width container
+.container--full{
+    width: 100%;
+}
+
+//Full width container with grey wash, apply to same element as container-full
+.container--washed{
+    background: rgba(37,40,46,.8);
+}
+
+.container-content-constrained{
+    @include span-columns(10 of 12);
+}
+
+

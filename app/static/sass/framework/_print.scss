@@ -1,0 +1,23 @@
+// Print css
+.global-nav,
+.system-messages,
+.uaToolsContent,
+.user-account-panel,
+.global-footer-link-group,
+.global-footer-social-links {
+	display: none;
+}
+
+.worko-logo {
+	position: absolute;
+	display: block;
+	z-index: 9999;
+}
+
+// Page specific
+.search-form,
+.browse-jobs,
+.job-view-toolbar,
+.job-view-footer {
+	display: none;
+}

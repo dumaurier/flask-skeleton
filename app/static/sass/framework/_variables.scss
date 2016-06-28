@@ -1,0 +1,78 @@
+﻿// Breakpoints
+$max-width: 1240px;
+$mq-small-height: new-breakpoint(max-width 340px max-height 480px 12);
+$mq-small-landscape: new-breakpoint(max-height 375px 12);
+$mq-xsmall: new-breakpoint(min-width 320px 12);
+$mq-small: new-breakpoint(min-width 768px 12);
+$mq-medium: new-breakpoint(min-width 960px 12);
+$mq-large: new-breakpoint(min-width 1240px);
+
+// Colours
+$color-primary-green: #5AA323;
+$color-primary-darkgreen: #427730; 
+$color-primary-blue: #007AC9; 
+
+$color-secondary-yellowgreen: #BED600;
+$color-secondary-grassgreen: #009B34;
+$color-secondary-darkergreen: #3C8A2E; 
+$color-secondary-darkblue: #007AC9; 
+$color-secondary-lightblue: #00A9E0;
+$color-secondary-darkteal: #037872;
+$color-secondary-lightteal: #027f79;
+
+$color-tertiary-burntorange: #D2492A;
+$color-tertiary-orange: #FFA100; 
+$color-tertiary-hotpink: #E167AE; 
+$color-tertiary-darkpink: #C32682;
+$color-tertiary-purple: #850057;
+
+// Text colours
+$color-text-green: #347E1B;
+$color-text-dark: #6A6A6A; 
+$color-text-light: #777;
+$color-text-darkbg: #F2F2F2;
+$color-text-heading: #25282E;
+$color-white: #fff;
+$color-black: #000;
+$color-highlight: #D10074; 
+$color-disabled: #A6A7A9;
+$color-border: #CCC;
+$color-nav-item: $color-text-heading;
+$color-nav-link: $color-text-green;
+$color-social-fb: #3b5998;
+$color-text-error: #D2492A;
+
+// Background colours
+$color-background-grey: #F2F2F2;
+$background-color-menu: #eee;
+$background-color-dark: $color-text-heading;
+$background-color-copyright: #1e2025;
+$background-color-messages: #A70240;
+
+// Headings 
+$fontSize-heading--primary: 1.875; //35px
+$fontSize-heading--secondary: 1.5625; //25px
+$fontSize-heading--tertiary: 1.125; //18px
+$fontSize-heading--quaternary: 1; // 16px
+
+// Spacing and widths
+$space-default: 10px; 
+$padding-section: 20px;
+$thumbnail-width: 200px;
+$ribbon-spacing: 50px 0;
+
+$container-spacing: 100px;
+$section-spacing: 60px;
+$content-spacing: 50px;
+$content-spacing--small: 20px;
+$header-spacing: 35px;
+$sidebar-spacing: 25px;
+
+$nav-height: 70px;
+
+
+
+
+
+
+

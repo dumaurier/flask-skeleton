@@ -1,0 +1,30 @@
+.content-block-link,
+.content-block-heading-link {
+	text-decoration: none;
+}
+
+.content-block-link {
+	@include default-link-styles('light');
+	cursor: pointer;
+}
+
+.content-block-copy {
+	color: $color-text-dark;
+}
+
+.content-block-copy--secondary {	
+	color: $color-text-light;
+}
+
+.content-block-heading {
+	color: $color-black;
+}
+
+.content-block-heading-link {
+	@include link-colors($color-black, $color-nav-link);
+}
+
+.content-block-paragraph {
+	font-size: 100%;
+	max-width: 100%;
+}

@@ -1,0 +1,77 @@
+.global-nav{
+	background: $color-white;
+	height: 70px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+}
+
+.worko-logo{
+	float: left;
+	width: 200px;
+	height: 70px;
+}
+
+.site-nav{
+	height: 70px;
+	float: left;
+}
+
+.head-wrapper{
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+.page-link{
+	@include font-size(1);
+	@include default-link-styles();
+	font-weight: 700;
+	line-height: 70px;
+	margin-left: 40px;
+	font-family: 'Droid Sans', sans-serif;
+	text-transform: uppercase;
+}
+
+// Magical SVG Logo.
+.worko-logo{
+  margin-left: 20px;
+  width: 150px;
+  height: 50px;
+  margin-top: 10px;
+}
+ 
+.letter:not(.worko-logo-w){
+  opacity: 1;
+}
+ 
+.worko-logo-w{
+  transform: translateY(0) scale(1) translateX(0);
+}
+ 
+.worko-logo-skyline{
+  transform: translateY(0) scale(1) translateX(0);
+}
+ 
+ 
+@media screen and (max-width: 740px){
+  .worko-logo{
+    width: 50px;
+    height: 50px;
+  }
+ 
+  .worko-logo-skyline{
+    transform: scale(1);
+  }
+ 
+  .worko-logo-w{
+    @include transform(translateY(-1495px) scale(5.4) translateX(-420px));
+  }
+ 
+  .letter:not(.worko-logo-w){
+    opacity: 0;
+  }
+ 
+  .worko-logo-skyline{
+    @include transform(translateY(-440px) scale(2.2) translateX(-630px));
+  }
+}

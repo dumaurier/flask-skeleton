@@ -1,0 +1,133 @@
+﻿//Base defaults and helpers
+html,body{
+    height: 100%;
+    margin: 0;
+    position: relative;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+    font-family: sans-serif;
+    color: $color-text-dark;
+}
+
+.main{
+    display: block;
+    max-width: 100%;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;    
+}
+
+.link--primary,
+.link--navigation {   
+    @include default-link-styles('light');  
+}
+
+.link--primaryDarkBg {
+    @include default-link-styles('dark');
+}
+
+.link--secondary {
+    @include default-link-styles('light', 'secondary'); 
+}
+
+.heading--primary {
+    @include heading('primary');
+    color: $color-text-heading;
+}
+
+.heading--secondary {
+    @include heading('secondary');
+    color: $color-text-heading;
+}
+
+.heading--tertiary {
+    @include heading('tertiary');
+    color: $color-text-heading;
+}
+
+.heading-link{
+    text-decoration: none;
+    color: inherit;
+}
+
+//resets overflow value on devices wider than an average mobile device to hide scroll bars
+@include media ($mq-small){
+    .main{
+        overflow:hidden;
+    }
+}
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden { 
+    border: 0; 
+    clip: rect(0 0 0 0); 
+    height: 1px; 
+    margin: -1px; 
+    overflow: hidden; 
+    padding: 0; 
+    position: absolute; 
+    width: 1px; 
+}
+
+// Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus { 
+    clip: auto; 
+    height: auto; 
+    margin: 0; 
+    overflow: visible; 
+    position: absolute; 
+    width: auto; 
+}
+
+.align-left{
+    text-align: left;
+}
+
+.align-right{
+    text-align: right;
+}
+
+.align-center{
+    text-align: center;
+}
+
+
+
+//Disabling input zoom shenanigans on mobile devies
+@include media ($mq-xsmall){
+    input[type="text"]:focus, 
+    input[type="email"]:focus, 
+    input[type="password"]:focus,
+    textarea:focus, select:focus,
+    input[type="text"]:hover,
+    input[type="email"]:hover, 
+    input[type="password"]:hover,
+    textarea:focus, select:hover {
+        @include font-size(1);
+    }
+}
+
+@include media ($mq-small){
+    input[type="text"]:focus, 
+    input[type="email"]:focus, 
+    input[type="password"]:focus,
+    textarea:focus, select:focus,
+    input[type="text"]:hover, 
+    input[type="email"]:hover, 
+    input[type="password"]:hover,
+    textarea:focus, select:hover {
+        @include font-size (0.875);
+    }
+}
+
+
+

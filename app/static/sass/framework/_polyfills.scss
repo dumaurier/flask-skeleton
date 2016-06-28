@@ -1,0 +1,94 @@
+.no-flexbox {
+  .articlePost-figure {
+    padding-right: 20px;
+    width: 200px;
+  }
+  .articlePost-figure,
+  .articlePost-body {
+    display: table-cell;
+    vertical-align: bottom;
+  }
+}
+
+@include media($mq-small){
+  //Oh, look at me, I'm IE9, I don't like 3d transforms! lalalalalalalala!
+  .no-csstransforms3d{
+    .nav-rotator-scroll-state{
+      display: none;
+    }
+
+    .nav-rotator-container.scroll-state-is-active .nav-rotator-default-state{
+      display: none;
+    }
+
+    .nav-rotator-container.scroll-state-is-active .nav-rotator-scroll-state{
+        top: 0;
+      display: block;
+    }
+
+    .nav-user-account-container{
+      z-index: 100;
+    }
+
+    // Show input text labels in IE9 because it doesn't support the "placeholder" attribute
+    .home-search {
+      .search-label-keyword,
+      .search-label-location {
+        &.visuallyhidden {
+          clip: auto;
+          height: auto;
+          overflow: visible;
+          width: auto;
+          top: -20px;
+        }
+      }
+      .search-label-location.visuallyhidden {
+        left: 50%;
+      }
+    }
+  }
+}
+
+
+@include media($mq-medium){
+
+  //IE Hates SVG Transforms in CSS
+  .no-smil .nav-rotator-scroll-state .worko-logo > *{
+    display: none;
+  }
+
+  .no-smil .nav-rotator-scroll-state .worko-logo{
+    background: url(../images/workoWebLogoMobile.png) no-repeat;
+    background-size: contain;
+  }
+
+}
+
+//Employer Ribbon in Ye Olde IE9
+.no-flexbox .employer-feature{
+    display:inline-block;
+    float: left;
+    width: 33%;
+}
+
+.no-flexbox .home-employer-logo{
+    display: block;
+}
+
+.no-flexbox .employer-feature .btn{
+    display: block;
+    text-align: center;
+}
+
+.no-flexbox{
+    .global-footer-link-group{
+        display: block;
+        float: left;
+        width: 30%;
+    }
+
+    .global-footer-bottom-bar{
+        clear: both;
+    }
+}
+

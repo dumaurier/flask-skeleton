@@ -1,0 +1,257 @@
+﻿/************** TYPOGRAPHY *************/
+$default-type-spacing:18px;
+
+//Default header base mixin
+%default-header{
+	font-family: sans-serif;
+	margin:$default-type-spacing 0;
+	color:#2c2c2c;
+	line-height:1;
+}
+
+html {
+  font-size: 100%;
+}
+
+h1{
+	@extend %default-header;
+	@include font-size(2.25);
+}
+
+h2{
+	@extend %default-header;
+	@include font-size(1.875);
+}
+
+h3{
+	@extend %default-header;
+	@include font-size(1.5);
+	margin:($default-type-spacing / 1.5) 0 ($default-type-spacing / 1.5) 0; 
+}
+
+h4{
+	@extend %default-header;
+	@include font-size(1.3125);
+	margin:($default-type-spacing / 3) 0; 
+}
+
+h5{
+	@extend %default-header;
+	@include font-size(1.125);
+	margin:($default-type-spacing / 3) 0; 
+}
+
+h6{
+	@extend %default-header;
+	margin:($default-type-spacing / 3) 0; 
+	@include font-size(1);
+}
+
+// Scaled down typography for sub-headings in a bordered content-box
+%sub-header{
+	font-family: sans-serif;
+	font-weight:normal;
+	text-transform:none;
+}
+
+.content-box-bordered,.worko-box{
+	h1,
+	h2{
+	@extend %sub-header;	
+	@include font-size(1.5);
+	}
+
+	h3{
+	@extend %sub-header;
+	@include font-size(1.3125);
+	}
+
+	h4{
+	@extend %sub-header;
+	@include font-size(1.125);
+	}
+
+	h5{
+	@extend %sub-header;
+	@include font-size(1);
+	}
+
+	h6{
+	@extend %sub-header;
+	@include font-size(.875);
+	}
+}
+
+//Base styles for paragraphs and inline quotations
+p{   
+    font-family: sans-serif;
+    @include font-size(.875);
+    margin-top:$default-type-spacing / 1.5;
+	line-height:1.5;
+    max-width:620px;
+    text-align:left;
+    word-break:normal;
+
+		> q{
+			font-style:italic;
+			quotes: "\201C" "\201D" "\2018" "\2019";
+
+			&:before { content: open-quote; }
+			&:after { content: close-quote; }
+		}
+
+		> q:lang(fr){
+			font-style:italic;
+			quotes: "\00AB" "\00BB" "\201C" "\201D";
+
+			&:before { content: open-quote; }
+			&:after { content: close-quote; }
+		}
+    }
+ 
+ //Removes margin-top from paragraphs preceded by a heading. Space between the heading and first paragraph will be handled by the margin on the heading.       
+ h1 + p,
+ h2 + p,
+ h3 + p,
+ h4 + p,
+ h5 + p,
+ h6 + p{
+    margin-top:0;
+    }
+
+//Resets the default top margin on paragraphs that directly follow a worko-heading
+[class^="worko-heading"] + p{margin-top:12px;}
+
+//Base style for a blockquote, strictly follows W3C spec. Check the style guide for the correct markup
+blockquote{
+    background:rgb(245,245,245);
+    margin-left:1.25em;
+    padding:10px;
+    border-left:5px solid $color-primary-green;
+    width:35em;
+
+	> p{
+		margin:0;
+	}
+
+	> p + p{
+		margin-top:$default-type-spacing / 1.5;
+	}
+
+	footer{
+		margin:.625em 0;
+	}
+
+	footer > cite{
+		font-style:italic;
+		@include font-size(.875);
+		line-height:$default-type-spacing;
+
+		&:before{
+			display:inline-block;
+			content:'\2014';
+		}
+	}
+}
+
+//Pull quote style to be used to highlight text within large blocks of text
+//Commented out until we actually have a use for it
+/*.pull-quote{
+    color: $color-tertiary-purple;
+	@include font-size(1.3125);
+    padding: 30px;
+    text-transform: uppercase;
+    @include font-gotham-medium;
+    background: none;
+    border: none;
+    display: inline-block;
+    float: right;
+    width: 15em;
+ }*/
+
+
+ //LISTS!
+ %default-lists{
+	font-family: sans-serif;
+	@include font-size(.875);
+	color:$color-text-dark;
+	line-height:1.5;
+}
+
+ul,ol{padding:0 20px;}
+
+ol li,
+ul li{
+    @extend %default-lists;
+}
+        
+ul li{list-style-type:square;}
+
+dl{@extend %default-lists;}
+
+dt{font-weight:bold;}
+
+dd{margin: 0 0 10px 10px;
+
+	> p{margin:0px;}
+}
+   
+dfn{font-style:italic;}     
+
+
+//Text-level semantic styles        
+ code, pre {
+    font-family: "Courier New", Courier, Monospace;
+    @include font-size(.875);
+}  
+	
+strong{
+    @include font-size(.875);
+    font-family: sans-serif;
+}	  
+     
+ small{
+    @include font-size(.75);
+    font-style:italic;
+}    
+    
+cite{font-style:italic;} 
+    
+ dfn,
+ abbr{
+    border-bottom:1px dotted #545454;
+    cursor:help;
+}
+    
+ mark{
+    background:#fefebb;
+    padding:0 2px;
+}
+
+.follow-link{
+	font-weight:700;
+	@include font-size(.875);
+	display: inline-block;
+	float: right;
+}
+
+.disabled-link{
+	cursor: not-allowed;
+	color: $color-disabled;
+}
+
+.worko-box h1,.worko-box h2,.worko-box h3,.worko-box h4,.worko-box h5,.worko-box h6{
+     @include font-whitney-medium;
+}
+
+p{
+    @include font-gotham-book;
+}
+
+ol li, ul li{
+    @include font-gotham-book;
+}
+
+strong{
+    @include font-whitney-medium;
+}
